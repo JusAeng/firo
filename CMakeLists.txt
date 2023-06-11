@@ -1,0 +1,29 @@
+# This file is used to make IDEs work, not for actual building.
+
+set(CMAKE_CXX_STANDARD 14)
+
+cmake_minimum_required(VERSION 3.0)
+
+project(firod CXX)
+
+add_definitions(-DENABLE_CLIENTAPI=1)
+add_definitions(-DENABLE_WALLET=1)
+add_definitions(-DENABLE_ELYSIUM=1)
+add_definitions(-DENABLE_TESTS=1)
+add_definitions(-DDEBUG_LOCKCONTENTION=1)
+add_definitions(-DDEBUG_LOCKORDER=1)
+set(ENABLE_CLIENTAPI ON)
+set(ENABLE_WALLET ON)
+set(ENABLE_ELYSIUM ON)
+set(ENABLE_TESTS ON)
+set(INCLUDE_DIRS src src/univalue/include src/client-api src/zmq src/zmqserver src/wallet src/qt src/qt/forms src/hdmint src/elysium src/crypto src/leveldb/include src/secp256k1 src/secp256k1/include src/secp256k1/cpp src/bls)
+include_directories(${INCLUDE_DIRS})
+
+file(GLOB_RECURSE SRC_FILES *.h *.cpp *.ui)
+add_executable(firod ${SRC_FILES})
+
+find_package(Boost COMPONENTS)
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+    target_link_libraries(firod ${Boost_LIBRARIES})
+endif()
