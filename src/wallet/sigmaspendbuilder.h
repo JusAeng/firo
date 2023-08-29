@@ -16,7 +16,7 @@ public:
 
 public:
     SigmaSpendBuilder(CWallet& wallet, CHDMintWallet& mintWallet, const CCoinControl *coinControl = nullptr);
-    ~SigmaSpendBuilder() override;
+    ~SigmaSpendBuilder();
 
 protected:
     CAmount GetInputs(std::vector<std::unique_ptr<InputSigner>>& signers, CAmount required, bool fDummy) override;

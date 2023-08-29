@@ -35,10 +35,6 @@ TxBuilder::TxBuilder(CWallet& wallet) noexcept : wallet(wallet)
 {
 }
 
-TxBuilder::~TxBuilder()
-{
-}
-
 CWalletTx TxBuilder::Build(const std::vector<CRecipient>& recipients, CAmount& fee,  bool& fChangeAddedToFee, CWalletDB& walletdb, bool fDummy)
 {
     if (recipients.empty()) {

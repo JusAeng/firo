@@ -35,7 +35,6 @@ public:
 
 public:
     explicit TxBuilder(CWallet& wallet) noexcept;
-    virtual ~TxBuilder();
 
     CWalletTx Build(const std::vector<CRecipient>& recipients, CAmount& fee,  bool& fChangeAddedToFee, CWalletDB& walletdb, bool fDummy = false);
 
