@@ -618,6 +618,7 @@ GITFLAGS = -DGIT_COMMIT_ID="`$(GIT) log --format=%h -1`"
 # util: shared between all executables.
 # This library *must* be included to make sure that the glibc
 # backward-compatibility objects and their sanity checks are linked.
+libbitcoin_util_a_LDFLAGS = "-lpthread"
 libbitcoin_util_a_CPPFLAGS = "$(GITFLAGS)" $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_util_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_util_a_SOURCES = \
