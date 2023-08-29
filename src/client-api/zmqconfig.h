@@ -12,7 +12,11 @@
 #include <stdarg.h>
 #include <string>
 #ifdef ENABLE_CLIENTAPI
+
+#ifndef ZMQ_STATIC
 #define ZMQ_STATIC
+#endif
+
 #include <zmq.h>
 #endif
 

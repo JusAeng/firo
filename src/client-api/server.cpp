@@ -107,7 +107,7 @@ void APIJSONRequest::parseType(std::string typeRequest)
         type = Delete;
     }
     else {
-       throw JSONAPIError(API_INVALID_REQUEST, "Invalid Type request string"); 
+       throw JSONAPIError(API_INVALID_REQUEST, "Invalid Type request string");
     }
 }
 
@@ -176,7 +176,7 @@ UniValue CAPITable::execute(APIJSONRequest request, const bool authPort) const
         throw JSONAPIError(API_FORBIDDEN_BY_SAFE_MODE, std::string("Safe mode: ") + strWarning);
 
     // Return if in warmup
-    { 
+    {
         LOCK(cs_apiWarmup);
         if (fAPIInWarmup && !pcmd->warmupOk)
             throw JSONAPIError(API_IN_WARMUP, apiWarmupStatus);
@@ -197,7 +197,7 @@ UniValue CAPITable::execute(APIJSONRequest request, const bool authPort) const
                 throw JSONAPIError(API_INVALID_PARAMETER, "Missing auth field");
             }
 
-            // execute wallet unlock, call method, relock following call. 
+            // execute wallet unlock, call method, relock following call.
             const CAPICommand *walletunlock = tableAPI["unlockWallet"];
             UniValue lock = walletunlock->actor(request.type, NullUniValue, request.auth, false);
             if(lock.isNull()){
@@ -217,6 +217,8 @@ UniValue CAPITable::execute(APIJSONRequest request, const bool authPort) const
     }
 
     g_apiSignals.PostCommand(*pcmd);
+
+    return UniValue();
 }
 
 CAPITable tableAPI;
