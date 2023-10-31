@@ -122,7 +122,30 @@ namespace spats {
             params->get_F()*r_data.s + full_view_key.get_D()
         );
         BOOST_CHECK_EQUAL(r_data.T*r_data.s + full_view_key.get_D(), params->get_U());
-    }
+
+        // Scalar temp;
+        // temp.randomize();
+        // std::cout << temp << std::endl;
+        // std::vector<unsigned char> result;
+        // result.resize(SCALAR_ENCODING);
+        // std::cout << result.data() << std::endl;
+        // temp.serialize(result.data());
+        // std::cout << result.data() << std::endl;
+        // for (size_t i = 0; i < result.size(); i++)
+        // {
+        //     std::cout << result[i] << " ";
+        // }
+        
+        // std::cout << std::endl;
+        // std::cout << result.data() << std::endl;
+
+        // std::cout << std::endl;
+        // std::vector<std::size_t> spend_indices = { 1, 3, 5 };
+        // const std::size_t w = spend_indices.size();
+        // for (std::size_t u = 0; u < w; u++) {
+        //     std::cout << u << " " << w << std::endl;
+        // }
+        }
 
     BOOST_AUTO_TEST_SUITE_END()
 
